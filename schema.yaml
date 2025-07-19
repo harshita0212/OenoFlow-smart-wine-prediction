@@ -1,0 +1,5 @@
+columns:
+  - name: age
+    dtype: int
+  - name: salary
+    dtype: float
