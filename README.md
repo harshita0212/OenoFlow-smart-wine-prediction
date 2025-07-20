@@ -16,35 +16,7 @@ This project demonstrates a production-level ML pipeline using:
 
 ---
 
-## 📁 Project Structure
-
 ```
-
-OenoFlow-smart-wine-prediction/
-│
-├── .github/workflows/             # CI pipeline (GitHub Actions)
-├── artifacts/                     # Generated artifacts like datasets, models, schema
-├── config/                        # Configuration YAML files
-├── src/mlProject/
-│   ├── components/               # Feature engineering, model trainer etc.
-│   ├── pipeline/                 # Stage-wise execution scripts
-│   ├── config/configuration.py   # Configuration Manager
-│   ├── utils/                    # Utility functions (logging, common ops)
-│   ├── entity/                   # Data classes for configs
-│   └── constants/                # Constants used in the pipeline
-│
-├── research/                     # EDA, notebooks, experimentation
-├── templates/                    # HTML files (for flask app if needed)
-├── main.py                       # Main pipeline trigger
-├── app.py                        # Flask app for inference
-├── Dockerfile                    # Docker configuration
-├── requirements.txt              # Python dependencies
-├── setup.py                      # Project metadata
-└── README.md                     # Project documentation
-
-````
-
----
 
 ## 🛠️ Setup Instructions
 
