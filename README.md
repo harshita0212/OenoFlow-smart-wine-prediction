@@ -1,5 +1,3 @@
-
-```markdown
 # 🍷 OenoFlow-smart-wine-prediction
 
 **OenoFlow-smart-wine-prediction** is a complete end-to-end MLOps project that predicts the quality of wine using machine learning.
