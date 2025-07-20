@@ -1,7 +1,6 @@
-```markdown
 # 🍷 OenoFlow-smart-wine-prediction
 
-**OenoFlow-smart-wine-prediction** is a complete end-to-end MLOps project that predicts the quality of wine using machine learning. It leverages data versioning, modular pipelines, CI/CD principles, model tracking with MLflow, and cloud deployment on AWS EC2.
+**OenoFlow-smart-wine-prediction** is a complete end-to-end MLOps project that predicts the quality of wine using machine learning.
 
 ---
 
@@ -15,7 +14,7 @@ This project demonstrates a production-level ML pipeline using:
 
 ---
 
-```
+## 📁 Project Structure
 
 OenoFlow-smart-wine-prediction/
 │
@@ -42,14 +41,14 @@ OenoFlow-smart-wine-prediction/
 ````
 ---
 
-## 🔧 Setup Instructions
 
-### ⚙️ Step 1: Clone the Repository
+## 🛠️ Setup Instructions
+
+### ✨ Step 1: Clone the Repository
 
 ```bash
 git clone https://github.com/your-username/OenoFlow-smart-wine-prediction.git
 cd OenoFlow-smart-wine-prediction
-````
 
 ### 🧪 Step 2: Create and Activate a Virtual Environment
 
