@@ -1,3 +1,5 @@
+
+```markdown
 # 🍷 OenoFlow-smart-wine-prediction
 
 **OenoFlow-smart-wine-prediction** is a complete end-to-end MLOps project that predicts the quality of wine using machine learning.
@@ -15,6 +17,8 @@ This project demonstrates a production-level ML pipeline using:
 ---
 
 ## 📁 Project Structure
+
+```
 
 OenoFlow-smart-wine-prediction/
 │
@@ -39,8 +43,8 @@ OenoFlow-smart-wine-prediction/
 └── README.md                     # Project documentation
 
 ````
----
 
+---
 
 ## 🛠️ Setup Instructions
 
@@ -49,6 +53,7 @@ OenoFlow-smart-wine-prediction/
 ```bash
 git clone https://github.com/your-username/OenoFlow-smart-wine-prediction.git
 cd OenoFlow-smart-wine-prediction
+````
 
 ### 🧪 Step 2: Create and Activate a Virtual Environment
 
@@ -65,81 +70,61 @@ pip install -r requirements.txt
 
 ---
 
-## 🧱 Pipeline Stages
-
-Each pipeline stage is modular and defined inside the `src/mlProject/pipeline/` directory:
-
-1. **Data Ingestion**
-2. **Data Validation**
-3. **Data Transformation**
-4. **Model Training**
-5. **Model Evaluation**
-
-Run the complete pipeline:
+## 🔁 Run the Pipeline
 
 ```bash
 python main.py
 ```
 
+This will execute all stages: ingestion, validation, transformation, training, and evaluation.
+
 ---
 
-## 🎯 MLflow Tracking
-
-Track your experiments:
+## 📊 MLflow Tracking
 
 ```bash
 mlflow ui
 ```
 
-Then open browser: [http://127.0.0.1:5000](http://127.0.0.1:5000)
+Open in browser: [http://127.0.0.1:5000](http://127.0.0.1:5000)
 
 ---
 
 ## ☁️ AWS EC2 Deployment
 
-### ✅ Step 1: Launch EC2 Instance
+### ✅ 1. Launch EC2
 
-* Choose **Ubuntu 20.04**
-* Allow ports **22 (SSH)** and **5000 (Flask/MLflow)** in security group
-* Use a key pair to SSH
+* AMI: Ubuntu 20.04
+* Open ports **22 (SSH)** and **5000 (Flask/MLflow)** in the security group
 
-### 🔐 Step 2: Connect to EC2
+### 🔐 2. Connect to Instance
 
 ```bash
 ssh -i your-key.pem ubuntu@your-ec2-public-ip
 ```
 
-### 🐍 Step 3: Install Dependencies on EC2
+### 📦 3. Setup Project on EC2
 
 ```bash
-sudo apt update && sudo apt install python3-pip
-sudo apt install python3-venv
-python3 -m venv venv
-source venv/bin/activate
+sudo apt update && sudo apt install python3-pip python3-venv -y
 git clone https://github.com/your-username/OenoFlow-smart-wine-prediction.git
 cd OenoFlow-smart-wine-prediction
+python3 -m venv venv
+source venv/bin/activate
 pip install -r requirements.txt
 ```
 
-### 🚦 Step 4: Start MLflow Server (Optional)
-
-```bash
-mlflow ui --host 0.0.0.0 --port 5000
-```
-
-### 🌐 Step 5: Run Flask App for Inference
+### 🚦 4. Run Flask App
 
 ```bash
 python app.py
 ```
 
-Access the app on `http://<your-ec2-public-ip>:5000`
+Go to `http://<your-ec2-public-ip>:5000`
 
 ---
 
-## 🐳 Optional: Docker Setup
-
-Build and run with Docker:
+## 🐳 Docker (Optional)
 
 ```bash
 docker build -t wine-predictor .
@@ -148,32 +133,33 @@ docker run -p 5000:5000 wine-predictor
 
 ---
 
-## 📌 Future Enhancements
+## 🧠 Future Enhancements
 
-* Enable **CI/CD with GitHub Actions**
 * Add **unit tests** with `pytest`
-* Push **trained models to S3**
-* Automate with **Terraform for AWS**
+* Push trained models to **AWS S3**
+* Add **CI/CD pipeline**
+* Automate AWS deployment using **Terraform**
 
 ---
 
 ## 🤝 Contributing
 
-Contributions and suggestions are welcome! Please fork the repo and submit a PR.
+Contributions welcome! Please fork and raise a pull request.
 
 ---
 
-## 🧾 License
+## 📜 License
 
-This project is licensed under the [MIT License](LICENSE).
+Licensed under the [MIT License](LICENSE).
+
+---
+
+## 🙏 Acknowledgements
+
+* UCI ML Repository
+* MLflow team
+* MLOps Zoomcamp inspiration
 
 ---
 
-## ✨ Acknowledgements
-
-* UCI Machine Learning Repository
-* MLflow Team
-* MLOps Zoomcamp Community
-
----
 
