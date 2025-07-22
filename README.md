@@ -48,8 +48,9 @@ OenoFlow-smart-wine-prediction/
 
 ---
 
+```
 ## ⚙️ Tech Stack
-
+```
 - Python
 - ElasticNet (Scikit-learn)
 - MLflow for experiment tracking
@@ -60,7 +61,7 @@ OenoFlow-smart-wine-prediction/
 - GitHub + DagsHub
 
 ---
-
+```
 ## 🧪 Model Evaluation & MLflow
 
 - Trained model: `ElasticNet Regression`
@@ -72,9 +73,9 @@ OenoFlow-smart-wine-prediction/
   - Model artifacts
 
 ---
-
+```
 ## 📦 Installation & Setup
-
+```
 ### 1. Clone the Repository
 
 ```bash
