@@ -14,122 +14,157 @@ This project demonstrates a production-level ML pipeline using:
 
 ---
 
-```
+# How to run?
+### STEPS:
 
-## 🛠️ Setup Instructions
-```
-### ✨ Step 1: Clone the Repository
-
-```bash
-git clone https://github.com/your-username/OenoFlow-smart-wine-prediction.git
-cd OenoFlow-smart-wine-prediction
-````
-
-### 🧪 Step 2: Create and Activate a Virtual Environment
+Clone the repository
 
 ```bash
-conda create -n wine_env python=3.10 -y
-conda activate wine_env
+https://github.com/harshita0212/OenoFlow-smart-wine-prediction
+```
+### STEP 01- Create a conda environment after opening the repository
+
+```bash
+conda create -n mlproj python=3.8 -y
 ```
 
-### 📦 Step 3: Install Dependencies
+```bash
+conda activate mlproj
+```
 
+
+### STEP 02- install the requirements
 ```bash
 pip install -r requirements.txt
 ```
 
----
-
-## 🔁 Run the Pipeline
 
 ```bash
-python main.py
-```
-
-This will execute all stages: ingestion, validation, transformation, training, and evaluation.
-
----
-
-## 📊 MLflow Tracking
-
-```bash
-mlflow ui
-```
-
-Open in browser: [http://127.0.0.1:5000](http://127.0.0.1:5000)
-
----
-
-## ☁️ AWS EC2 Deployment
-
-### ✅ 1. Launch EC2
-
-* AMI: Ubuntu 20.04
-* Open ports **22 (SSH)** and **5000 (Flask/MLflow)** in the security group
-
-### 🔐 2. Connect to Instance
-
-```bash
-ssh -i your-key.pem ubuntu@your-ec2-public-ip
-```
-
-### 📦 3. Setup Project on EC2
-
-```bash
-sudo apt update && sudo apt install python3-pip python3-venv -y
-git clone https://github.com/your-username/OenoFlow-smart-wine-prediction.git
-cd OenoFlow-smart-wine-prediction
-python3 -m venv venv
-source venv/bin/activate
-pip install -r requirements.txt
-```
-
-### 🚦 4. Run Flask App
-
-```bash
+# Finally run the following command
 python app.py
 ```
 
-Go to `http://<your-ec2-public-ip>:5000`
-
----
-
-## 🐳 Docker (Optional)
-
+Now,
 ```bash
-docker build -t wine-predictor .
-docker run -p 5000:5000 wine-predictor
+open up you local host and port
 ```
 
----
 
-## 🧠 Future Enhancements
 
-* Add **unit tests** with `pytest`
-* Push trained models to **AWS S3**
-* Add **CI/CD pipeline**
-* Automate AWS deployment using **Terraform**
+## MLflow
 
----
+[Documentation](https://mlflow.org/docs/latest/index.html)
 
-## 🤝 Contributing
 
-Contributions welcome! Please fork and raise a pull request.
+##### cmd
+- mlflow ui
 
----
+### dagshub
+[dagshub](https://dagshub.com/)
 
-## 📜 License
+import dagshub
+dagshub.init(repo_owner='harshita0212', repo_name='OenoFlow-smart-wine-prediction', mlflow=True)
 
-Licensed under the [MIT License](LICENSE).
+import mlflow
+with mlflow.start_run():
+  mlflow.log_param('parameter name', 'value')
+  mlflow.log_metric('metric name', 1)
 
----
+Run this to export as env variables:
+<!-- 
+```bash
 
-## 🙏 Acknowledgements
+export MLFLOW_TRACKING_URI= https://dagshub.com/harshita0212/OenoFlow-smart-wine-prediction.mlflow
 
-* UCI ML Repository
-* MLflow team
-* MLOps Zoomcamp inspiration
+export MLFLOW_TRACKING_USERNAME=harshita 
 
----
+export MLFLOW_TRACKING_PASSWORD=a96f4207556acabc9f145184bde3390ce52c2f88
+
+``` -->
+
+
+
+# AWS-CICD-Deployment-with-Github-Actions
+
+## 1. Login to AWS console.
+
+## 2. Create IAM user for deployment
+
+	#with specific access
+
+	1. EC2 access : It is virtual machine
+
+	2. ECR: Elastic Container registry to save your docker image in aws
+
+
+	#Description: About the deployment
+
+	1. Build docker image of the source code
+
+	2. Push your docker image to ECR
+
+	3. Launch Your EC2 
+
+	4. Pull Your image from ECR in EC2
+
+	5. Lauch your docker image in EC2
+
+	#Policy:
+
+	1. AmazonEC2ContainerRegistryFullAccess
+
+	2. AmazonEC2FullAccess
+
+	
+## 3. Create ECR repo to store/save docker image
+    - Save the URI: 566373416292.dkr.ecr.ap-south-1.amazonaws.com/mlproj
+
+	
+## 4. Create EC2 machine (Ubuntu) 
+
+## 5. Open EC2 and Install docker in EC2 Machine:
+	
+	
+	#optinal
+
+	sudo apt-get update -y
+
+	sudo apt-get upgrade
+	
+	#required
+
+	curl -fsSL https://get.docker.com -o get-docker.sh
+
+	sudo sh get-docker.sh
+
+	sudo usermod -aG docker ubuntu
+
+	newgrp docker
+	
+# 6. Configure EC2 as self-hosted runner:
+    setting>actions>runner>new self hosted runner> choose os> then run command one by one
+
+
+# 7. Setup github secrets:
+
+    AWS_ACCESS_KEY_ID=
+
+    AWS_SECRET_ACCESS_KEY=
+
+    AWS_REGION = us-east-1
+
+    AWS_ECR_LOGIN_URI = demo>>  566373416292.dkr.ecr.ap-south-1.amazonaws.com
+
+    ECR_REPOSITORY_NAME = simple-app
+
+
+
+
+## About MLflow 
+MLflow
+
+ - Its Production Grade
+ - Trace all of your expriements
+ - Logging & tagging your model
 
 
