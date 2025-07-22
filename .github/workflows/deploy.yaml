@@ -1,0 +1,43 @@
+name: Deploy Flask App
+
+on:
+  push:
+    branches:
+      - main  # or the branch you're using
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Run Tests (optional)
+      run: |
+        echo "Run tests here"
+        # python -m unittest discover tests/
+
+    - name: Deploy to server (example: Render or EC2)
+      env:
+        PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+        HOST: ${{ secrets.SERVER_HOST }}
+        USER: ${{ secrets.SERVER_USER }}
+      run: |
+        echo "$PRIVATE_KEY" > key.pem
+        chmod 600 key.pem
+        ssh -o StrictHostKeyChecking=no -i key.pem $USER@$HOST << 'EOF'
+          cd /path/to/app
+          git pull origin main
+          sudo systemctl restart flaskapp  # or your command to restart
+        EOF
