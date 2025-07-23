@@ -7,6 +7,8 @@
 OenoFlow is a complete end-to-end Machine Learning pipeline for predicting wine quality using ML models. It is built using Python, MLflow, DVC for versioning, and deployed with Flask on an AWS EC2 instance.
 
 ---
+<img width="1024" height="1024" alt="ChatGPT Image Jul 23, 2025, 11_18_38 AM" src="https://github.com/user-attachments/assets/4f59c74d-f5f7-436c-a6ba-7f3979325a32" />
+
 
 ## 🚀 Project Features
 
